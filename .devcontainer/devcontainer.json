@@ -1,0 +1,38 @@
+{
+    "name": "Markdown Writing Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+	"shutdownAction": "stopContainer",
+	"runArgs": ["--rm"],
+    "workspaceMount": "source=${localWorkspaceFolder}/workspace,target=/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "yzhang.markdown-all-in-one",
+                "bierner.markdown-preview-github-styles",
+                "jebbs.markdown-extended",
+                "bierner.markdown-mermaid",
+                "marp-team.marp-vscode",
+                "plantuml.plantuml",
+                "bierner.markdown-emoji",
+                "bierner.markdown-checkbox",
+                "bierner.markdown-footnotes",
+                "bierner.markdown-preview-github-styles"
+            ],
+            "settings": {
+                "markdown.preview.breaks": true,
+                "markdown.extension.preview.autoShowPreviewToSide": true,
+                "markdown.extension.print.imgToBase64": true,
+                "plantuml.server": "https://www.plantuml.com/plantuml",
+                "marp.enableHtml": true,
+                "marp.exportType": "pdf"
+            }
+        }
+    },
+    "forwardPorts": [8080],
+    "postCreateCommand": "mkdir -p /home/vscode/.npm-global && npm config set prefix '/home/vscode/.npm-global' && npm install -g @marp-team/marp-cli",
+    "remoteUser": "vscode"
+} 
