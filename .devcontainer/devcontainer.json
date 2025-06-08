@@ -20,7 +20,8 @@
                 "bierner.markdown-emoji",
                 "bierner.markdown-checkbox",
                 "bierner.markdown-footnotes",
-                "bierner.markdown-preview-github-styles"
+                "bierner.markdown-preview-github-styles",
+                "mushan.vscode-paste-image"
             ],
             "settings": {
                 "markdown.preview.breaks": true,
